@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # imports
 from argparse import ArgumentParser
 from os.path import isfile
@@ -188,7 +190,7 @@ def run(args):
         stop(None)
 
     # run compose
-    command = 'docker-compose up'
+    command = 'DOCKER_CLIENT_TIMEOUT=600 COMPOSE_HTTP_TIMEOUT=600 docker-compose up'
     if args.build:
         command += ' --build'
     if args.detach:
